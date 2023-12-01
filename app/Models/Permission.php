@@ -10,4 +10,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Permission extends Model
 {
     use HasFactory, HasUuids, SoftDeletes;
+    protected $fillable = ['name'];
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
+    }
 }

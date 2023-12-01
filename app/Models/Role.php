@@ -11,4 +11,9 @@ class Role extends Model
 {
     use HasFactory, HasUuids, SoftDeletes;
     protected $fillable = ['name'];
+
+    public function permissions()
+    {
+        return $this->belongsToMany(Permission::class);
+    }
 }
