@@ -9,9 +9,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Role extends Model
 {
-    const ROLE_ADMINISTRATOR = '9abec43f-5917-46e6-a5f4-923a538ea12a';
-    const ROLE_OWNER = '9abec43f-5f2b-49a5-b1c0-1387e7168ba9';
-    const ROLE_USER = '9abec43f-5f78-4be7-9582-360a418c3420';
+    const ROLE_ADMINISTRATOR = '9abeda15-4078-4fc1-845d-c427b55f898a';
+    const ROLE_OWNER = '9abeda15-424d-4059-b202-af34608dc8df';
+    const ROLE_USER = '9abeda15-4290-4436-a3e2-b658c2586d4e';
 
     use HasFactory, HasUuids, SoftDeletes;
     protected $fillable = ['name'];
