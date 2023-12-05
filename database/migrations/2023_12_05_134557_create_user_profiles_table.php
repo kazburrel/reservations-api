@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('user_profiles', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->foreignId('user_id')->constrained();
+            $table->foreignUuid('user_id')->constrained();
             $table->string('invoice_address')->nullable();
             $table->string('invoice_postcode')->nullable();
             $table->string('invoice_city')->nullable();
-            $table->foreignId('invoice_country_id')->nullable()->constrained('countries');
+            $table->foreignUuid('invoice_country_id')->nullable()->constrained('countries');
             $table->string('gender')->nullable();
             $table->date('birth_date')->nullable();
-            $table->foreignId('nationality_country_id')->nullable()->constrained('countries');
+            $table->foreignUuid('nationality_country_id')->nullable()->constrained('countries');
             $table->text('description')->nullable();
             $table->softDeletes();
         });
