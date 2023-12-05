@@ -24,4 +24,11 @@ class Property extends Model
     {
         return $this->belongsTo(City::class);
     }
+    
+    public static function booted()
+    {
+        parent::booted();
+ 
+        self::observe(PropertyObserver::class);
+    }
 }
