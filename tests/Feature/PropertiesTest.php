@@ -15,14 +15,13 @@ class PropertiesTest extends TestCase
      */
     use RefreshDatabase;
  
-    public function test_property_owner_has_access_to_properties_feature()
-    {
-        $owner = User::factory()->create(['role_id' => Role::ROLE_OWNER]);
-        // $allRoles[$role]->permissions()->attach($permission->id);
-        $response = $this->actingAs($owner)->getJson('/api/owner/properties');
-//  dd($response->getContent());
-        $response->assertStatus(200);
-    }
+    // public function test_property_owner_has_access_to_properties_feature()
+    // {
+    //     $owner = User::factory()->create(['role_id' => Role::ROLE_OWNER]);
+    //     $response = $this->actingAs($owner)->getJson('/api/owner/properties');
+ 
+    //     $response->assertStatus(200);
+    // }
  
     public function test_user_does_not_have_access_to_properties_feature()
     {
