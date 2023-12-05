@@ -14,16 +14,16 @@ class CitySeeder extends Seeder
      */
     public function run(): void
     {
-        $id = Uuid::uuid4();
+        
         City::create([
-            'country_id' => $id,
+            'country_id' => Uuid::uuid4(),
             'name' => 'New York',
             'lat' => 40.712776,
             'long' => -74.005974,
         ]);
 
         City::create([
-            'country_id' => $id,
+            'country_id' => Uuid::uuid4(),
             'name' => 'London',
             'lat' => 51.507351,
             'long' => -0.127758,
