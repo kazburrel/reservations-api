@@ -17,7 +17,6 @@ class CitySeeder extends Seeder
     {
         $uk = Country::where('name', 'United Kingdom')->firstOrFail();
         $us = Country::where('name', 'United States')->firstOrFail();
-        // dd($uk->id, $us->id);
         City::create([
             'country_id' => $uk->id,
             'name' => 'New York',
