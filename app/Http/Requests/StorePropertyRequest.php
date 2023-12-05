@@ -11,7 +11,7 @@ class StorePropertyRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,10 @@ class StorePropertyRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required',
+            'city_id' => 'required|exists:cities,id',
+            'address_street' => 'required',
+            'address_postcode' => 'required',
         ];
     }
 }

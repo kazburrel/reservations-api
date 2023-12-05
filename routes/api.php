@@ -26,4 +26,5 @@ Route::middleware('auth:sanctum')->group(function () {
     // No owner/user grouping, for now, will do it later with more routes
     Route::get('owner/properties', [PropertyController::class, 'index']);
     Route::get('user/bookings', [BookingController::class, 'index']);
+    Route::post('owner/properties', [PropertyController::class, 'store']);
 });
