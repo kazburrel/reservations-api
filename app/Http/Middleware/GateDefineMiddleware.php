@@ -25,6 +25,7 @@ class GateDefineMiddleware
             foreach ($permissions as $permission) {
                 Gate::define($permission->name, fn () => true);
             }
+            //  Log::info('User Permissions: ' . json_encode($user->permissions->pluck('name')->toArray()));
         }
         return $next($request);
     }
