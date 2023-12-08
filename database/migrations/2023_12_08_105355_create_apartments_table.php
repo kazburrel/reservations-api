@@ -12,8 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('apartments', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
+            $table->foreignUuid('property_id')->constrained();
+            $table->string('name');
+            $table->unsignedInteger('capacity_adults');
+            $table->unsignedInteger('capacity_children');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
