@@ -22,7 +22,7 @@ class PermissionSeeder extends Seeder
             $permission = Permission::create(['name' => $key]);
             foreach ($roles as $role) {
                 $roleModel = Role::find($role);
-                dd($roleModel); 
+                // dd($roleModel); 
                 if ($roleModel) {
                     $roleModel->permissions()->attach($permission->id);
                 } else {

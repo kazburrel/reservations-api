@@ -21,6 +21,9 @@ class BookingsTest extends TestCase
 
     public function test_property_owner_does_not_have_access_to_bookings_feature()
     {
+        $role = '9abeda15-4078-4fc1-845d-c427b55f898a';
+        $allRoles = Role::where('id', $role)->first();
+        dd($allRoles);
         $owner = User::factory()->create(['role_id' => Role::ROLE_OWNER]);
         $response = $this->actingAs($owner)->getJson('/api/user/bookings');
 
