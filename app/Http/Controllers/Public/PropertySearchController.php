@@ -14,8 +14,14 @@ class PropertySearchController extends Controller
             ->when($request->has('city'), function ($query) use ($request) {
                 $query->where('city_id', $request->city);
             })
-            ->when($request->country, function($query) use ($request) {
-                $query->whereHas('city', fn($q) => $q->where('country_id', $request->country));
+            ->when($request->country, function ($query) use ($request) {
+                $query->whereHas('city', fn ($q) => $q->where('country_id', $request->country));
+            })
+            ->when($request->adults && $request->children, function ($query) use ($request) {
+                $query->withWhereHas('apartments', function ($query) use ($request) {
+                    $query->where('capacity_adults', '>=', $request->adults)
+                        ->where('capacity_children', '>=', $request->children);
+                });
             })
             ->get();
     }
