@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\BedType;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,9 +13,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('bed_types', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
+            $table->string('name');
             $table->timestamps();
         });
+ 
+        BedType::create(['name' => 'Single bed']);
+        BedType::create(['name' => 'Large double bed']);
+        BedType::create(['name' => 'Extra large double bed']);
+        BedType::create(['name' => 'Sofa bed']);
     }
 
     /**
