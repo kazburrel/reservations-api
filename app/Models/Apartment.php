@@ -18,10 +18,16 @@ class Apartment extends Model
         'capacity_adults',
         'capacity_children',
         'size',
+        'bathrooms', 
     ];
 
     public function property()
     {
         return $this->belongsTo(Property::class);
+    }
+
+    public function apartment_type()
+    {
+        return $this->belongsTo(ApartmentType::class);
     }
 }
