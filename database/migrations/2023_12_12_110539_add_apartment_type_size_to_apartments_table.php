@@ -12,7 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('apartments', function (Blueprint $table) {
-            //
+            $table->foreignUuid('apartment_type_id')
+                ->nullable()
+                ->after('id')
+                ->constrained();
+            $table->unsignedInteger('size')->nullable();
         });
     }
 
