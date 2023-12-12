@@ -10,6 +10,7 @@ class PropertySearchController extends Controller
 {
     public function __invoke(Request $request)
     {
+        dd(Property::with('city', 'apartments.apartment_type')->get());
         return Property::with('city', 'apartments.apartment_type')
             ->when($request->has('city'), function ($query) use ($request) {
                 $query->where('city_id', $request->city);
