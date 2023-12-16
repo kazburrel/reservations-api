@@ -13,4 +13,9 @@ class RoomType extends Model
     protected $fillable = [
         'name',
     ];
+
+    public function beds()
+    {
+        return $this->hasMany(Bed::class);
+    }
 }
